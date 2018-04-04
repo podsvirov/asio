@@ -33,3 +33,7 @@ install(EXPORT asio-targets
   DESTINATION ${CMAKE_INSTALL_CMAKEDIR}
   NAMESPACE asio::)
 install(FILES asio-config.cmake DESTINATION ${CMAKE_INSTALL_CMAKEDIR})
+
+# Buildtree export
+configure_file(asio-config.cmake ${CMAKE_CURRENT_BINARY_DIR}/asio-config.cmake COPYONLY)
+export(EXPORT asio-targets NAMESPACE asio:: FILE ${CMAKE_CURRENT_BINARY_DIR}/asio-targets.cmake)
